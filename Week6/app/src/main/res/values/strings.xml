@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Week6</string>
+    <string name="text_assign">Assigned by unassigned</string>
+    <string name="description">Description</string>
+    <string name="action_settings">User Screen</string>
+    <string name="title">Title:</string>
+    <string name="completed">Completed:</string>
+    <string name="assigned">Assigned to:</string>
+    <string name="hint_assigned">Unassigned</string>
+    <string name="btnAdd">ADD</string>
+    <string name="action_user_activity">Task Screen</string>
+    <string name="name">User\'s name</string>
+    <string name="btnSave">SAVE</string>
+    <string name="spinnerFirst">Assign Task</string>
+    <string name="spinnerLast">Unassign</string>
+    <string name="delete">Delete</string>
+</resources>
