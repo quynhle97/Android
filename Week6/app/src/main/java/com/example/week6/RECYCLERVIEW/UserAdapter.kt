@@ -47,11 +47,6 @@ class UserAdapter(var items: ArrayList<User>, val context: Context) : RecyclerVi
         notifyItemInserted(items.size - 1)
     }
 
-//    fun removeData(userRm: User) {
-//        this.items.remove(userRm)
-//        notifyDataSetChanged()
-//    }
-
 }
 
 class UserViewHolder(view: View) : RecyclerView.ViewHolder(view) {

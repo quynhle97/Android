@@ -61,7 +61,7 @@ class DetailTaskActivity : AppCompatActivity() {
                     "Cancel"
                 ) { dialog, _ -> dialog?.dismiss() }
 
-            val myDialog = builder.create();
+            val myDialog = builder.create()
             myDialog.show()
             true
         }

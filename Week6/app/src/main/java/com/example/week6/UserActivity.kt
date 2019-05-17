@@ -1,10 +1,12 @@
 package com.example.week6
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.arch.persistence.room.Room
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.Menu
@@ -25,6 +27,10 @@ class UserActivity : AppCompatActivity() {
     lateinit var userDao: UserDAO
     lateinit var db: UserDatabase
 
+    var tasks: java.util.ArrayList<Task> = java.util.ArrayList()
+    lateinit var taskDao: TaskDAO
+    lateinit var dbTask: TaskDatabase
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
@@ -44,6 +50,14 @@ class UserActivity : AppCompatActivity() {
             val id = userDao.insert(userBtn)
             userBtn.id = id.toInt()
             userAdapter.appendData(userBtn)
+        }
+    }
+
+    private fun computeUserAssignedTasks() {
+        val tasks = taskDao.getAll()
+
+        for (item in tasks) {
+
         }
     }
 
@@ -97,7 +111,18 @@ class UserActivity : AppCompatActivity() {
         }
 
         override fun onBtnDeleteClicked(position: Int) {
-            removeItem(position)
+            val builder = AlertDialog.Builder(this@UserActivity)
+            builder.setTitle("Confirmation")
+                .setMessage("Are you sure to remove this user?")
+                .setPositiveButton("OK") { _, _ ->
+                    removeItem(position)
+                }
+                .setNegativeButton(
+                    "Cancel"
+                ) { dialog, _ -> dialog?.dismiss() }
+
+            val myDialog = builder.create()
+            myDialog.show()
         }
     }
 
