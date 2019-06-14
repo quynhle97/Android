@@ -239,7 +239,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     for (i in relationships) {
                         if (i.note == task.id) {
                             removeItemRelationship(i)
-                            Toast.makeText(applicationContext,"New tag added: ${getTagName(i.tag)} - $task", Toast.LENGTH_LONG).show()
                         }
                     }
                     removeItemTask(position)
